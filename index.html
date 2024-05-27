@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<style>
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.img-center {
+    display: block;
+    float: left;
+    margin-left: 5%;
+    width: 20%;
+}
+.img-center2 {
+    display: block;
+    float: right;
+    margin-right: 5%;
+    width: 20%;
+}
+body {
+    background-color: #149954;
+    font-family: monospace;
+}
+</style>
+<head>
+</head>
+<title>INFO 🇵🇸</title>
+<body>
+<h1 id="data" style="text-align: center;margin-top: 35px;">I <a href="https://data.techforpalestine.org/docs/killed-in-gaza/" style="color: #E4312B;">DATI</a> IN QUESTO SITO SONO AGGIORNATI IN TEMPO REALE</h1>
+
+<h1 style="text-align: center;font-size: 100px;">Sono:</h1>
+
+
+<h1 id="count2" style="text-align: center;font-size: 100px;"></h1>
+
+<h1 id="count" style="text-align: center;font-size: 100px;"></h1>
+<h2 style="text-align: center;font-size: 45px;">dei quali</h2>
+<h2 id="bimbi" style="text-align: center;font-size: 55px;"></h2>
+<h2 id="donne" style="text-align: center;font-size: 55px;"></h2>
+<h2 id="count2" style="text-align: center;"></h2>
+
+<div>
+<p id="tribute" style="text-align: center;font-size: 35px;"></p>
+
+<div id="nomi"></div>
+</div>
+
+<div class="footer">
+    <img class="img-center" src="footer.gif" alt="flag gif"> 
+    <img class="img-center2" src="footer.gif" alt="flag gif"> 
+</div>
+
+<script>
+    let url = 'https://data.techforpalestine.org/api/v2/killed-in-gaza.min.json';
+
+fetch(url)
+.then(res => res.json())
+.then(out =>
+  elaborate(out))
+.catch(err => { throw err });
+
+url = 'https://data.techforpalestine.org/api/v3/summary.min.json';
+
+fetch(url)
+.then(res => res.json())
+.then(out =>
+  elaborate2(out))
+.catch(err => { throw err });
+
+
+function elaborate(x){
+    var count = 0;
+    
+
+    document.getElementById("tribute").innerHTML = "Sono <span style='color:#E4312B;'>" + x.length + "</span> i nomi registrati delle persone mancate";
+    var cont = document.getElementById("nomi");
+    x.forEach(compagnu => {
+        var par = document.createElement("p");
+
+        if ( compagnu.sex == "m" && compagnu.age < 23){
+            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\nnera un ragazzo di " + compagnu.age + " anni" );
+        }
+
+        if ( compagnu.sex == "f" && compagnu.age < 23){
+            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\nera una ragazza di " + compagnu.age + " anni" );
+        }
+
+        if ( compagnu.sex == "m" && compagnu.age >= 23){
+            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\nera un uomo di " + compagnu.age + " anni" );
+        }
+
+
+
+        if ( compagnu.sex == "f" && compagnu.age >= 23){
+            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\nera una donna di " + compagnu.age + " anni" );
+        }
+
+        par.appendChild(text);
+        par.style = "color:white;text-align: center;font-size: 38px;margin-left:25%;margin-right:25%;border-top: 2px dotted black;padding-top: 100px;padding-bottom: 100px;white-space: pre-line;";
+        cont.appendChild(par);
+    });   
+    return;
+}
+
+function elaborate2(x){
+
+    document.getElementById("data").innerHTML = "I <a href='https://data.techforpalestine.org/docs/killed-in-gaza/' style='color: #E4312B;'' target='_blank'>DATI</a> IN QUESTO SITO SONO AGGIORNATI AL " + x.gaza.last_update;
+    document.getElementById("count").innerHTML = " <span style='color:#E4312B;'>" + (parseInt(x.gaza.killed.total) + parseInt(x.west_bank.killed.total))  + "</span> i morti";
+    document.getElementById("count2").innerHTML = "<span style='color:#E4312B;'>" + (parseInt(x.gaza.injured.total) + parseInt(x.west_bank.injured.total))  + "</span> i feriti";
+    document.getElementById("bimbi").innerHTML = "<span style='color:#E4312B;'>" + (parseInt(x.gaza.killed.children) + parseInt(x.west_bank.killed.children)) + "</span> SONO BAMBINI";
+    document.getElementById("donne").innerHTML = "<span style='color:#E4312B;'>" + x.gaza.killed.women+ "</span> SONO DONNE";
+    
+    
+    return;
+}
+
+
+
+
+</script>
+
+
+</body>
+</html>
