@@ -115,7 +115,7 @@ button.big-button:active::before {
 <p id="tribute" style="text-align: center;font-size: 35px;"></p>
 
 
-<button class="big-button" onclick="show()">Mostra</button>
+<button class="big-button" onclick="show()" style="margin-top: 5%;">Mostra</button>
 
 <div id="nomi" style="margin-bottom: 20%;margin-top: 10%;"></div>
 </div>
@@ -188,7 +188,13 @@ function elaborate(x){
         }
 
         par.appendChild(text);
-        par.style = "color:white;text-align: center;font-size: 38px;margin-left:25%;margin-right:25%;border-top: 2px dotted black;padding-top: 100px;padding-bottom: 100px;white-space: pre-line;  text-shadow: 3.2px 3.2px black;";
+        par.style = "color:white;text-align: center;font-size: 38px;margin-left:25%;margin-right:25%;padding-top: 50px;padding-bottom: 50px;white-space: pre-line;  text-shadow: 3.2px 3.2px black;";
+
+        var img = document.createElement("img");
+        img.src = "./separatore.png";
+        img.style = "display: block;margin: auto;";
+        cont.appendChild(img);
+
         cont.appendChild(par);
     });   
     return;
