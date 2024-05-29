@@ -78,21 +78,21 @@ function elaborate(x){
         var par = document.createElement("p");
 
         if ( compagnu.sex == "m" && compagnu.age < 23){
-            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\nera un ragazzo di " + compagnu.age + " anni" );
+            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era un ragazzo di " + compagnu.age + " anni" );
         }
 
         if ( compagnu.sex == "f" && compagnu.age < 23){
-            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\nera una ragazza di " + compagnu.age + " anni" );
+            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era una ragazza di " + compagnu.age + " anni" );
         }
 
         if ( compagnu.sex == "m" && compagnu.age >= 23){
-            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\nera un uomo di " + compagnu.age + " anni" );
+            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era un uomo di " + compagnu.age + " anni" );
         }
 
 
 
         if ( compagnu.sex == "f" && compagnu.age >= 23){
-            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\nera una donna di " + compagnu.age + " anni" );
+            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era una donna di " + compagnu.age + " anni" );
         }
 
         par.appendChild(text);
