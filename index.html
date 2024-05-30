@@ -117,7 +117,9 @@ button.big-button:active::before {
 
 <button class="big-button" onclick="show()" style="margin-top: 5%;">Mostra</button>
 
-<div id="nomi" style="margin-bottom: 20%;margin-top: 10%;"></div>
+<div id="nomi" style="margin-bottom: 20%;margin-top: 10%;">
+  <h1 id="loading" style="text-align: center;"></h1>
+</div>
 </div>
 
 <div class="footer">
@@ -151,24 +153,34 @@ fetch(url)
 
 function show(){
 
+  var l = document.getElementById("loading");
+  l.innerHTML = "caricamento dei dati";
+
 fetch(url)
 .then(res => res.json())
 .then(out =>
   elaborate(out))
 .catch(err => { throw err });
 
+  
+
+}
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
 
 
 function elaborate(x){
     var count = 0;
     
-
-    document.getElementById("tribute").innerHTML = "Sono <span style='color:#E4312B;'>" + x.length + "</span> i nomi registrati delle persone mancate";
     var cont = document.getElementById("nomi");
+    removeAllChildNodes(cont);
     x.forEach(compagnu => {
         var par = document.createElement("p");
-
+        count++;
         if ( compagnu.sex == "m" && compagnu.age < 23){
             var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era un ragazzo di " + compagnu.age + " anni" );
         }
@@ -194,8 +206,8 @@ function elaborate(x){
         img.src = "./separatore.png";
         img.style = "display: block;margin: auto;";
         cont.appendChild(img);
-
         cont.appendChild(par);
+
     });   
     return;
 }
