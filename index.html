@@ -1,234 +1,43 @@
 <!DOCTYPE html>
-<html>
-<style>
-.footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-.img-center {
-    display: block;
-    float: left;
-    margin-left: 5%;
-    width: 20%;
-}
-.img-center2 {
-    display: block;
-    float: right;
-    margin-right: 5%;
-    width: 20%;
-}
-body {
-    background-color: #149954;
-    font-family: monospace;
-}
-
-button {
-  
-  display: block;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  
-  text-decoration: none;
-  font-size: 1.5rem;
-  color: black;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: inherit;
-  margin: auto;
-}
-
-button.big-button {
-  padding: 1em 2em;
-  border: 2px solid #E4312B;
-  color: white;
-  border-radius: 1em;
-  background:black;
-  transform-style: preserve-3d;
-  transition: all 175ms cubic-bezier(0, 0, 1, 1);
-
-}
-button.big-button::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #E4312B;
-  border-radius: inherit;
-  box-shadow: 0 0 0 2px black, 0 0.75em 0 0 black;
-  transform: translate3d(0, 0.75em, -1em);
-  transition: all 175ms cubic-bezier(0, 0, 1, 1);
-}
-
-button.big-button:hover {
-  background: black;
-  color: white;
-  border: 2px solid white;
-  box-shadow: 0 0 0 2px white, 0 0.75em 0 0 white;
-  
-  transform: translate(0, 0.375em);
-}
-
-button.big-button:hover::before {
-  transform: translate3d(0, 0.75em, -1em);
-  
-}
-
-button.big-button:active {
-  transform: translate(0em, 0.75em);
-  background: green;
-  color: black;
-  
-  
-}
-
-button.big-button:active::before {
-  transform: translate3d(0, 0, -1em);
-
-  box-shadow: 0 0 0 2px #E4312B, 0 0.25em 0 0 #149954;
-}
-
-
-</style>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INFO 🇵🇸</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
-<title>INFO 🇵🇸</title>
+
 <body>
-<h1 id="data" style="text-align: center;margin-top: 35px;">I <a href="https://data.techforpalestine.org/docs/killed-in-gaza/" style="color: #E4312B;  text-shadow: 1px 1px black;">DATI</a> IN QUESTO SITO SONO AGGIORNATI IN TEMPO REALE</h1>
+  <h1 id="data" style="text-align: center;margin-top: 35px;">I <a
+      href="https://data.techforpalestine.org/docs/killed-in-gaza/"
+      style="color: #E4312B;  text-shadow: 1px 1px black;">DATI</a> IN QUESTO SITO SONO AGGIORNATI IN TEMPO REALE</h1>
 
-<h1 style="text-align: center;font-size: 80px;">Sono:</h1>
+  <h1 style="text-align: center;font-size: 80px;">Sono:</h1>
 
-<h1 id="count2" style="text-align: center;font-size: 100px;"></h1>
+  <h1 id="count2" style="text-align: center;font-size: 100px;"></h1>
 
-<h1 id="count" style="text-align: center;font-size: 100px;"></h1>
-<h2 style="text-align: center;font-size: 45px;">dei quali</h2>
-<h2 id="bimbi" style="text-align: center;font-size: 55px;"></h2>
-<h2 id="donne" style="text-align: center;font-size: 55px;"></h2>
-<h2 id="count2" style="text-align: center;"></h2>
+  <h1 id="count" style="text-align: center;font-size: 100px;"></h1>
+  <h2 style="text-align: center;font-size: 45px;">dei quali</h2>
+  <h2 id="bimbi" style="text-align: center;font-size: 55px;"></h2>
+  <h2 id="donne" style="text-align: center;font-size: 55px;"></h2>
+  <h2 id="count2" style="text-align: center;"></h2>
 
-<div>
-<p id="tribute" style="text-align: center;font-size: 35px;"></p>
-
-
-<button class="big-button" onclick="show()" style="margin-top: 5%;">Mostra</button>
-
-<div id="nomi" style="margin-bottom: 20%;margin-top: 10%;">
-  <h1 id="loading" style="text-align: center;"></h1>
-</div>
-</div>
-
-<div class="footer">
-    <img class="img-center" src="footer.gif" alt="flag gif"> 
-    <img class="img-center2" src="footer.gif" alt="flag gif"> 
-</div>
+  <div>
+    <p id="tribute" style="text-align: center;font-size: 35px;"></p>
 
 
-<script>
+    <button class="big-button" onclick="show()" style="margin-top: 5%;">Mostra</button>
 
-let url = 'https://data.techforpalestine.org/api/v3/summary.min.json';
+    <div id="nomi" style="margin-bottom: 20%;margin-top: 10%;">
+      <h1 id="loading" style="text-align: center;"></h1>
+    </div>
+  </div>
 
-fetch(url)
-.then(res => res.json())
-.then(out =>
-  elaborate2(out))
-.catch(err => { throw err });
-
-
-
-url = 'https://data.techforpalestine.org/api/v2/killed-in-gaza.min.json';
-fetch(url)
-.then(res => res.json())
-.then(out => document.getElementById("tribute").innerHTML = "Sono <span style='color:#E4312B;  text-shadow: 3.2px 3.2px black;'>" + out.length + "</span> i nomi registrati delle persone mancate"
- )
-.catch(err => { throw err });
-
-
-
- url = 'https://data.techforpalestine.org/api/v2/killed-in-gaza.min.json';
-
-function show(){
-
-  var l = document.getElementById("loading");
-  l.innerHTML = "caricamento dei dati";
-
-fetch(url)
-.then(res => res.json())
-.then(out =>
-  elaborate(out))
-.catch(err => { throw err });
-
-  
-
-}
-
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
-
-
-function elaborate(x){
-    var count = 0;
-    
-    var cont = document.getElementById("nomi");
-    removeAllChildNodes(cont);
-    x.forEach(compagnu => {
-        var par = document.createElement("p");
-        count++;
-        if ( compagnu.sex == "m" && compagnu.age < 23){
-            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era un ragazzo di " + compagnu.age + " anni" );
-        }
-
-        if ( compagnu.sex == "f" && compagnu.age < 23){
-            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era una ragazza di " + compagnu.age + " anni" );
-        }
-
-        if ( compagnu.sex == "m" && compagnu.age >= 23){
-            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era un uomo di " + compagnu.age + " anni" );
-        }
-
-
-
-        if ( compagnu.sex == "f" && compagnu.age >= 23){
-            var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era una donna di " + compagnu.age + " anni" );
-        }
-
-        par.appendChild(text);
-        par.style = "color:white;text-align: center;font-size: 38px;margin-left:25%;margin-right:25%;padding-top: 50px;padding-bottom: 50px;white-space: pre-line;  text-shadow: 3.2px 3.2px black;";
-
-        var img = document.createElement("img");
-        img.src = "./separatore.png";
-        img.style = "display: block;margin: auto;";
-        cont.appendChild(img);
-        cont.appendChild(par);
-
-    });   
-    return;
-}
-
-function elaborate2(x){
-
-    document.getElementById("data").innerHTML = "I <a href='https://data.techforpalestine.org/docs/killed-in-gaza/' style='color: #E4312B;  text-shadow: 1px 1px black;'' target='_blank'>DATI</a> IN QUESTO SITO SONO AGGIORNATI AL " + x.gaza.last_update;
-    document.getElementById("count").innerHTML = " <span style='color:#E4312B;  text-shadow: 3.2px 3.2px black;'>" + (parseInt(x.gaza.killed.total) + parseInt(x.west_bank.killed.total))  + "</span> i morti";
-    document.getElementById("count2").innerHTML = "<span style='color:#E4312B;  text-shadow: 3.2px 3.2px black;'>" + (parseInt(x.gaza.injured.total) + parseInt(x.west_bank.injured.total))  + "</span> i feriti";
-    document.getElementById("bimbi").innerHTML = "<span style='color:#E4312B;  text-shadow: 3.2px 3.2px black;'>" + (parseInt(x.gaza.killed.children) + parseInt(x.west_bank.killed.children)) + "</span> SONO BAMBINI";
-    document.getElementById("donne").innerHTML = "<span style='color:#E4312B;  text-shadow: 3.2px 3.2px black;'>" + x.gaza.killed.women+ "</span> SONO DONNE";
-    
-    
-    return;
-}
-
-
-
-
-</script>
-
+  <div class="footer">
+    <img class="img-center" src="footer.gif" alt="flag gif">
+    <img class="img-center2" src="footer.gif" alt="flag gif">
+  </div>
 
 </body>
 </html>
