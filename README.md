@@ -1,3 +1,4 @@
+## Questo progetto consiste in un sito web che mostra dati aggiornati quotidianamente riguardanti la situazione in Palestina, con l'obiettivo di informare e sensibilizzare l'opinione pubblica.
 
 ## 📊 Caratteristiche del Progetto
 
@@ -7,9 +8,9 @@
 
 ## 🌟 Unisciti a Noi!
 
-Questo è un progetto collaborativo e abbiamo bisogno del tuo aiuto! Che tu sia uno sviluppatore, un designer, o semplicemente un appassionato di dati, c'è un posto per te nel nostro team. Ecco come puoi contribuire:
+Questo è un progetto collaborativo e abbiamo bisogno del tuo aiuto! Che tu sia uno sviluppatore, un designer, o semplicemente una persona appassionata della causa palestinese, c'è un posto per te nel nostro team. Ecco come puoi contribuire:
 
-- **Segnala Bug**: Se trovi un problema, non esitare a aprire una [issue](https://github.com/GioarmsCodes/letsactivate/issues).
+- **Segnala Bug**: Se trovi un problema, non esitare ad aprire una [issue](https://github.com/GioarmsCodes/letsactivate/issues).
 - **Proponi Miglioramenti**: Hai un'idea per migliorare il sito? Siamo aperti a suggerimenti e proposte tramite le [pull request](https://github.com/GioarmsCodes/letsactivate/pulls).
 - **Partecipa alla Discussione**: Unisciti a noi nelle discussioni aperte per scambiare idee e collaborare con altri membri della comunità.
 
@@ -25,6 +26,6 @@ Questo progetto è distribuito sotto la licenza MIT. Vedi il file [LICENSE](http
 
 ---
 
-Grazie per il tuo interesse nel nostro progetto. Insieme possiamo creare qualcosa di straordinario!
+Grazie per il tuo interesse nel nostro progetto. Insieme possiamo fare la differenza e sostenere la causa palestinese!
 
 **Acampada**
