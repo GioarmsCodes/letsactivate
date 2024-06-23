@@ -94,11 +94,142 @@ button.big-button:active::before {
 }
 
 
+.p-menu1{
+   height: 100%;
+}
+
+
+
+
+/* Hamburger */
+.hamburger1 {
+  height: 45px;
+  margin: 10px;
+  display: -ms-grid;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+  z-index: 120;
+}
+
+.hamburger1 div {
+  background-color: rgb(61, 61, 61);
+  position: relative;
+  width: 40px;
+  height: 5px;
+  margin-top: 7px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#toggle1 {
+  display: none;
+}
+
+#toggle1:checked + .hamburger1 .top {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  margin-top: 22.5px;
+}
+
+#toggle1:checked + .hamburger1 .meat {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin-top: -5px;
+}
+
+#toggle1:checked + .hamburger1 .bottom {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+#toggle1:checked ~ .menu1 {
+  height: 350px;
+}
+
+
+/* Menu */
+.menu1 {
+  width: 58%;
+  margin-left: 20%;
+  margin-right: 20%;
+
+  background-image: url("./kefia.png");
+  background-size:cover;
+  background-position-y: center;
+  background-blend-mode:soft-light;
+  
+  display: -ms-grid;
+  display: grid;
+  grid-template-rows: 1fr repeat(4, 0.5fr);
+  grid-row-gap: 25px;
+  padding: 0;
+  list-style: none;
+  clear: both;
+  text-align: center;
+  height: 0px;
+  overflow: hidden;
+  transition: height .4s ease;
+  z-index: 120;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.menu1 a:first-child {
+  margin-top: 40px;
+}
+
+.menu1 a:last-child {
+  margin-bottom: 40px;
+}
+
+.link1 {
+  width: 80%;
+  background-color: white;
+  margin-left: 10%;
+  padding: 10px 0;
+  font: 700 50px 'Oswald', monospace;
+  text-decoration: none;
+  text-align: center;
+  color: black ;
+}
+
+.link1:hover {
+  background-color: #149954;
+  color: rgb(61, 61, 61);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+
 </style>
 <head>
 </head>
 <title>INFO 🇵🇸</title>
 <body>
+
+  <section class="p-menu1">
+    <nav id="navbar" class="navigation" role="navigation">
+      <input id="toggle1" type="checkbox" />
+      <label class="hamburger1" for="toggle1">
+        <div class="top" style="background-color: red;"></div>
+        <div class="meat" style="background-color: green;"></div>
+        <div class="bottom" style="background-color: black;"></div>
+      </label>
+    
+      <nav class="menu1">
+        <a class="link1" href="./journalist.html">Journalists</a>
+        <a class="link1" href="./articles.html">Articles</a>
+        <p> <a href="https://t.me/+0Zi0c29R4dI4ZWE0" style="text-decoration: none;" target="_blank"> <img src="./telegram.png" alt="" style="width: 45px;height:45px;"> </a>  <a href="https://www.instagram.com/acampada.cittastudi/" style="text-decoration: none;" target="_blank"> <img src="./insta.png" alt="" style="width: 45px;height:45px;"></a></p>
+      </nav>
+  </nav>
+  </section>
+
+
+
+
+
+  
 <h1 id="data" style="text-align: center;margin-top: 35px;">I <a href="https://data.techforpalestine.org/docs/killed-in-gaza/" style="color: #E4312B;  text-shadow: 1px 1px black;">DATI</a> IN QUESTO SITO SONO AGGIORNATI IN TEMPO REALE</h1>
 
 <h1 style="text-align: center;font-size: 80px;">Sono:</h1>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<style>
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.img-center {
+    display: block;
+    float: left;
+    margin-left: 5%;
+    width: 20%;
+}
+.img-center2{
+    display: block;
+    float: right;
+    margin-right: 5%;
+    width: 20%;
+}
+body{
+    background-color: #149954;
+    font-family: monospace;
+}
+</style>
+<head>
+</head>
+<title>INFO 🇵🇸</title>
+<body>
+
+<div>
+<h2 id="tribute" style="text-align: center;font-size: 60px;"></h2>
+
+<div id="nomi"></div>
+</div>
+
+<div class="footer">
+    <img class="img-center" src="footer.gif" alt="flag gif"> 
+    <img class="img-center2" src="footer.gif" alt="flag gif"> 
+</div>
+
+<script>
+    let url = 'https://data.techforpalestine.org/api/v2/press_killed_in_gaza.min.json'; 
+
+fetch(url)
+.then(res => res.json())
+.then(out =>
+  elaborate(out))
+.catch(err => { throw err });
+
+
+function elaborate(x){
+    var count = 0;
+    
+
+    document.getElementById("tribute").innerHTML = "Sono <span style='color:#E4312B;'>" + x.length + "</span> i giornalisti venuti a mancare";
+    var cont = document.getElementById("nomi");
+    x.forEach(compagnu => {
+        var par = document.createElement("p");
+
+
+            var text = document.createTextNode(compagnu.name + " " + compagnu.name_en +"\n " + compagnu.notes);
+
+        par.appendChild(text);
+        par.style = "color:white;text-align: center;font-size: 38px;margin-left:25%;margin-right:25%;border-top: 2px dotted black;padding-top: 100px;padding-bottom: 100px;white-space: pre-line;";
+        cont.appendChild(par);
+    });   
+    return;
+}
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
