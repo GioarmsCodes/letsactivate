@@ -222,7 +222,7 @@ button.big-button:active::before {
         <a class="link1" href="./journalist.html">Journalists</a>
         <!-- Work in progress -->
         <!--        <a class="link1" href="./articles.html">Articles</a> -->
-        <p> <a href="https://t.me/acampadamilano" style="text-decoration: none;" target="_blank"> <img src="images/telegram.png" alt="" style="width: 45px;height:45px;"> </a>  <a href="https://www.instagram.com/acampada.cittastudi/" style="text-decoration: none;" target="_blank"> <img src="images/insta.png" alt="" style="width: 45px;height:45px;"></a></p>
+        <p> <a href="https://t.me/+0Zi0c29R4dI4ZWE0   " style="text-decoration: none;" target="_blank"> <img src="images/telegram.png" alt="" style="width: 45px;height:45px;"> </a>  <a href="https://www.instagram.com/acampada.cittastudi/" style="text-decoration: none;" target="_blank"> <img src="images/insta.png" alt="" style="width: 45px;height:45px;"></a></p>
       </nav>
   </nav>
   </section>
@@ -316,20 +316,24 @@ function elaborate(x){
         count++;
         if ( compagnu.sex == "m" && compagnu.age < 23){
             var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era un ragazzo di " + compagnu.age + " anni" );
+            if (compagnu.age == 0) text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era un ragazzo di età non definita");
         }
 
         if ( compagnu.sex == "f" && compagnu.age < 23){
             var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era una ragazza di " + compagnu.age + " anni" );
+            if (compagnu.age == 0) text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era un ragazza di età non definita");
         }
 
         if ( compagnu.sex == "m" && compagnu.age >= 23){
             var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era un uomo di " + compagnu.age + " anni" );
+            if (compagnu.age == 0) text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era un uomo di età non definita");
         }
 
 
 
         if ( compagnu.sex == "f" && compagnu.age >= 23){
             var text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era una donna di " + compagnu.age + " anni" );
+            if (compagnu.age == 0) text = document.createTextNode(compagnu.name + " " + compagnu.en_name +"\n era una donna di età non definita");
         }
 
         par.appendChild(text);
